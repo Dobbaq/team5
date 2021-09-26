@@ -22,8 +22,38 @@ public class PacMan{
 		return false;
 	}
 
-	public boolean is_ghost_in_range() { 
-		return false;
+	public boolean is_ghost_in_range() {
+		Location temp = new Location(this.myLoc);
+		x = temp.x;
+		y = temp.y;
+		boolean flag = false;
+		if(this.myMap.getLoc(this.temp(x - 1, y + 1)) == Map.Type.GHOST) 
+		{
+			flag = true; //Top Left Diagonal
+		} else if(this.myMap.getLoc(this.temp(x - 1, y)) == Map.Type.GHOST)
+		{
+			flag = true; //Left
+		} else if(this.myMap.getLoc(this.temp(x - 1, y - 1)) == Map.Type.GHOST)
+		{
+			flag = true; //Bottom Left Diagonal
+		} else if(this.myMap.getLoc(this.temp(x, y - 1)) == Map.Type.GHOST)
+		{
+			flag = true; //Bottom
+		} else if(this.myMap.getLoc(this.temp(x + 1, y - 1)) == Map.Type.GHOST)
+		{
+			flag = true; //Bottom Right Diagonal
+		} else if(this.myMap.getLoc(this.temp(x + 1, y)) == Map.Type.GHOST)
+		{
+			flag = true; //Right
+		} else if(this.myMap.getLoc(this.temp(x + 1, y + 1)) == Map.Type.GHOST)
+		{
+			flag = true; //Top Right Diagonal
+		} else if(this.myMap.getLoc(this.temp(x, y + 1)) == Map.Type.GHOST)
+		{
+			flag = true; //Top
+		}
+		
+		return flag;
 	}
 
 	public JComponent consume() { 
