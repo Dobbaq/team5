@@ -46,7 +46,7 @@ public class PacMan{
 			validMoves.add(this.temp(x, y + 1)); //Top
 		}
 		
-		return validMoves;	
+		return validMoves; //Returns a list of valid locations
 	}
 
 	public boolean move() {
