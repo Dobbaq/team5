@@ -56,8 +56,14 @@ public class Map{
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
 
-		// update locations while saving the old location
+		// get the old location of the component
 		Location oldLoc = locations.get(name);
+
+		// check if the move is valid
+		if (field.get(oldLoc).contains(Type.WALL))
+			return false;
+
+		// update locations
 		locations.put(name, loc);
 
 		// update components
@@ -66,7 +72,7 @@ public class Map{
 		// update field
 		field.get(oldLoc).remove(type);
 		field.get(loc).add(type);
-		return false;
+		return true;
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
