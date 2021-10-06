@@ -75,39 +75,19 @@ public class Map{
 		return true;
 	}
 	
-	//For the given location argument, returns what is currently at the location (Empty, Pacman, Cookie, Ghost, Wall).
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
 		return null;
 	}
 
-	/*The method controls ghosts attacking pacman. If the ghost was able 
-	to successfully attack pacman and update the display to do so return true, otherwise return false */
 	public boolean attack(String Name) {
+		//update gameOver
 		return false;
 	}
-
-	/*The method controls Pacman eating a cookie. When the function is able to successfully 
-	update display to eat a cookie it returns the Cookie component that has been eaten, 
-	otherwise it returns null.*/
+	
 	public JComponent eatCookie(String name) {
 		//update locations, components, field, and cookies
-        //the id for a cookie at (10, 1) is tok_x10_y1
-        Location pacman = locations.get("pacman");
-        HashSet <Type> loc = field.get(pacman);
-
-        for (Type ele : loc) {
-            String cookie = "tok_x" + pacman.x + "_y" + pacman.y;
-            if (ele == Type.COOKIE) {
-                locations.remove(cookie, pacman);
-				cookies++;
-				JComponent val = components.get(cookie); //get cookie from components to return component
-				components.remove(cookie); //remove cookie from compoent
-                return val;
-            }
-        }
-
-        return null;
-		
+		//the id for a cookie at (10, 1) is tok_x10_y1
+		return null;
 	}
 }
