@@ -82,11 +82,14 @@ public class Map{
         for (Type ele : loc) {
             String cookie = "tok_x" + pacman.x + "_y" + pacman.y;
             if (ele == Type.COOKIE) {
-                locations.remove(cookie, pacman);
+				
+				locations.remove(cookie, pacman);
 				cookies++;
+				
 				JComponent val = components.get(cookie); //get cookie from components to return component
 				components.remove(cookie); //remove cookie from compoents
-                return val;
+				
+				return val;
             }
         }
 
