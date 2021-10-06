@@ -85,7 +85,7 @@ public class Map{
                 locations.remove(cookie, pacman);
 				cookies++;
 				JComponent val = components.get(cookie); //get cookie from components to return component
-				components.remove(cookie); //remove cookie from compoent
+				components.remove(cookie); //remove cookie from compoents
                 return val;
             }
         }
