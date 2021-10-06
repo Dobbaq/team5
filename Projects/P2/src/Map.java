@@ -61,13 +61,28 @@ public class Map{
 	//For the given location argument, returns what is currently at the location (Empty, Pacman, Cookie, Ghost, Wall).
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
-		return field.get(loc);
+		return null;
 	}
 
 	/*The method controls ghosts attacking pacman. If the ghost was able 
 	to successfully attack pacman and update the display to do so return true, otherwise return false */
 	public boolean attack(String Name) {
-	
+		//update gameOver
+		//get ghost, if pacman in range returns true game over should be set to true
+		// as pacman is attacked
+		Location ghostLoc = locations.get(Name); //get location of ghost
+		Location pacman = locations.get("pacman");
+
+		int x_offset = ghostLoc.x - pacman.x, y_offset = ghostLoc.x - pacman.x;
+		
+		if (x_offset < 0) x_offset *= -1;
+		if (y_offset < 0) y_offset *= -1;
+
+		if(x_offset <= 1 && y_offset <= 1) {
+			gameOver = true;
+			return true;
+		}
+
 		return false;
 	}
 
