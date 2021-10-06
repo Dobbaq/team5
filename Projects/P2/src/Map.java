@@ -67,22 +67,6 @@ public class Map{
 	/*The method controls ghosts attacking pacman. If the ghost was able 
 	to successfully attack pacman and update the display to do so return true, otherwise return false */
 	public boolean attack(String Name) {
-		//update gameOver
-		//get ghost, if pacman in range returns true game over should be set to true
-		// as pacman is attacked
-		Location ghostLoc = locations.get(Name); //get location of ghost
-		Location pacman = locations.get("pacman");
-
-		int x_offset = ghostLoc.x - pacman.x, y_offset = ghostLoc.x - pacman.x;
-		
-		if (x_offset < 0) x_offset *= -1;
-		if (y_offset < 0) y_offset *= -1;
-
-		if(x_offset <= 1 && y_offset <= 1) {
-			gameOver = true;
-			return true;
-		}
-
 		return false;
 	}
 
@@ -90,6 +74,22 @@ public class Map{
 	update display to eat a cookie it returns the Cookie component that has been eaten, 
 	otherwise it returns null.*/
 	public JComponent eatCookie(String name) {
-		return null;
+		//update locations, components, field, and cookies
+        //the id for a cookie at (10, 1) is tok_x10_y1
+        Location pacman = locations.get("pacman");
+        HashSet <Type> loc = field.get(pacman);
+
+        for (Type ele : loc) {
+            String cookie = "tok_x" + pacman.x + "_y" + pacman.y;
+            if (ele == Type.COOKIE) {
+                locations.put(cookie, pacman);
+                cookies++;
+                JComponent val = components.get("cookie"); //this part prolly wrong
+                return val;
+            }
+        }
+
+        return null;
+		
 	}
 }
