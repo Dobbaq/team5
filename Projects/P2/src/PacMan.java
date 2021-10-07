@@ -24,8 +24,8 @@ public class PacMan{
 
 	public boolean is_ghost_in_range() {
 		Location temp = new Location(this.myLoc);
-		x = temp.x;
-		y = temp.y;
+		int x = temp.x;
+		int y = temp.y;
 		boolean flag = false;
 		if(this.myMap.getLoc(this.temp(x - 1, y + 1)).contains(Map.Type.GHOST))
 		{
