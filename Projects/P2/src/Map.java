@@ -81,8 +81,7 @@ public class Map{
 		if(x_offset <= 1 && y_offset <= 1) {
 			gameOver = true;
 			return true;
-		}
-
+		} 
 		return false;
 	}
 
