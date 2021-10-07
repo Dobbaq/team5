@@ -1,6 +1,7 @@
 import java.util.HashSet;
 import java.util.ArrayList;
 import javax.swing.JComponent;
+import java.util.Random;
 
 public class PacMan{
 	String myName;
@@ -50,14 +51,22 @@ public class PacMan{
 	}
 
 	public boolean move() {
-		return false;
+		ArrayList<Location> temp = get_valid_moves();
+		Random rand = new Random();
+		if(temp.size() == 0) //If Pacman can't move return false
+		{
+			return false;
+		}
+		int rng = rand.nextInt(temp.size()); // 0 to ArrayList size 
+		myLoc = temp.get(rng); //Sets Pacman to random valid location
+		return true;
 	}
 
 	public boolean is_ghost_in_range() { 
 		return false;
 	}
 
-	public JComponent consume() {  
- 		return null;
+	public JComponent consume() { 
+ 		return myMap.getLoc(myLoc) == Map.Type.COOKIE ? myMap.eatCookie(myName) : null;
 	}
 }
