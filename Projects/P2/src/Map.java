@@ -101,6 +101,7 @@ public class Map{
         JComponent val = components.get(cookie); //get cookie from components to return component
         components.remove(cookie); //remove cookie from compoents
 
+
         return val;
       }
     }
