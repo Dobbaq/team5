@@ -21,37 +21,37 @@ public class Ghost{
 		}
 		
 		// Bottom middle
-		else if (!myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.WALL)) {
+		if (!myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.WALL)) {
 			locations.add(new Location(myLoc.x, myLoc.y - 1));
 		}
 
 		// Bottom right
-		else if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y - 1)).contains(Map.Type.WALL)) {
+		if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y - 1)).contains(Map.Type.WALL)) {
 			locations.add(new Location(myLoc.x + 1, myLoc.y - 1));
 		}
 
 		// Middle left
-		else if (!myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.WALL)) {
+		if (!myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.WALL)) {
 			locations.add(new Location(myLoc.x - 1, myLoc.y));
 		}
 
 		// Middle right
-		else if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.WALL)) {
+		if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.WALL)) {
 			locations.add(new Location(myLoc.x + 1, myLoc.y));
 		}
 
 		// Top left
-		else if (!myMap.getLoc(new Location(myLoc.x - 1, myLoc.y + 1)).contains(Map.Type.WALL)) {
+		if (!myMap.getLoc(new Location(myLoc.x - 1, myLoc.y + 1)).contains(Map.Type.WALL)) {
 			locations.add(new Location(myLoc.x - 1, myLoc.y + 1));
 		}
 
 		// Top middle
-		else if (!myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.WALL)) {
+		if (!myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.WALL)) {
 			locations.add(new Location(myLoc.x, myLoc.y + 1));
 		}
 
 		// Top right
-		else if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y + 1)).contains(Map.Type.WALL)) {
+		if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y + 1)).contains(Map.Type.WALL)) {
 			locations.add(new Location(myLoc.x + 1, myLoc.y + 1));
 		}
 
