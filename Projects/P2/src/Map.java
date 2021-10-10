@@ -55,13 +55,30 @@ public class Map{
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
-		return false;
+
+		// get the old location of the component
+		Location oldLoc = locations.get(name);
+
+		// check if the move is valid
+		if (field.get(oldLoc).contains(Type.WALL))
+			return false;
+
+		// update locations
+		locations.put(name, loc);
+
+		// update components
+		components.get(name).setLocation(loc.x, loc.y);
+
+		// update field
+		field.get(oldLoc).remove(type);
+		field.get(loc).add(type);
+		return true;
 	}
 	
 	//For the given location argument, returns what is currently at the location (Empty, Pacman, Cookie, Ghost, Wall).
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
-		return null;
+		return field.get(loc);
 	}
 
 	/*The method controls ghosts attacking pacman. If the ghost was able 
@@ -82,13 +99,31 @@ public class Map{
 			gameOver = true;
 			return true;
 		} 
+		
 		return false;
 	}
-
-	/*The method controls Pacman eating a cookie. When the function is able to successfully 
-	update display to eat a cookie it returns the Cookie component that has been eaten, 
-	otherwise it returns null.*/
+	
 	public JComponent eatCookie(String name) {
-		return null;
+		//update locations, components, field, and cookies
+    //the id for a cookie at (10, 1) is tok_x10_y1
+    Location pacman = locations.get("pacman");
+    HashSet<Type> loc = field.get(pacman);
+
+    for (Type ele : loc) {
+      String cookie = "tok_x" + pacman.x + "_y" + pacman.y;
+      if (ele == Type.COOKIE) {
+
+        locations.remove(cookie);
+        cookies++;
+
+        JComponent val = components.get(cookie); //get cookie from components to return component
+        components.remove(cookie); //remove cookie from compoents
+
+
+        return val;
+      }
+    }
+
+    return null;
 	}
 }
