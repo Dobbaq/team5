@@ -21,19 +21,26 @@ public class PacMan {
 		/* Can't go through wall. But Empty, Cookie, Ghost works */
 		if (!myMap.getLoc(new Location(myLoc.x - 1, myLoc.y + 1)).contains(Map.Type.WALL)) {
 			validMoves.add(new Location(myLoc.x - 1, myLoc.y + 1)); // Top Left Diagonal
-		} else if (!myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.WALL)) {
+		}
+		if (!myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.WALL)) {
 			validMoves.add(new Location(myLoc.x - 1, myLoc.y)); // Left
-		} else if (!myMap.getLoc(new Location(myLoc.x - 1, myLoc.y - 1)).contains(Map.Type.WALL)) {
+		}
+		if (!myMap.getLoc(new Location(myLoc.x - 1, myLoc.y - 1)).contains(Map.Type.WALL)) {
 			validMoves.add(new Location(myLoc.x - 1, myLoc.y - 1)); // Bottom Left Diagonal
-		} else if (!myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.WALL)) {
+		}
+		if (!myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.WALL)) {
 			validMoves.add(new Location(myLoc.x, myLoc.y - 1)); // Bottom
-		} else if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y - 1)).contains(Map.Type.WALL)) {
+		}
+		if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y - 1)).contains(Map.Type.WALL)) {
 			validMoves.add(new Location(myLoc.x + 1, myLoc.y - 1)); // Bottom Right Diagonal
-		} else if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.WALL)) {
+		}
+		if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.WALL)) {
 			validMoves.add(new Location(myLoc.x + 1, myLoc.y)); // Right
-		} else if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y + 1)).contains(Map.Type.WALL)) {
+		}
+		if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y + 1)).contains(Map.Type.WALL)) {
 			validMoves.add(new Location(myLoc.x + 1, myLoc.y + 1)); // Top Right Diagonal
-		} else if (!myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.WALL)) {
+		}
+		if (!myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.WALL)) {
 			validMoves.add(new Location(myLoc.x, myLoc.y + 1)); // Top
 		}
 
@@ -49,6 +56,7 @@ public class PacMan {
 		}
 		int rng = rand.nextInt(temp.size()); // 0 to ArrayList size
 		myLoc = temp.get(rng); // Sets Pacman to random valid location
+		myMap.move(myName, myLoc, Map.Type.PACMAN);
 		return true;
 	}
 
