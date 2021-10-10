@@ -1,20 +1,22 @@
 import junit.framework.*;
 import java.awt.Color;
 import java.io.*;
-import java.util.ArrayList;
+import java.util.HashSet;
 
-public class TestMapGetLoc {
+public class TestMapGetLoc extends TestCase {
 	
-	public void testMapGetLoc() {
-		Mainframe frame = new MainFrame(); //Creates A New Map With Walls and Tokens Initialized
+	public void testMapGetLoc() throws FileNotFoundException {
+		MainFrame frame = new MainFrame(); //Creates A New Map With Walls and Tokens Initialized
 
 		//Creating Players
-		PacMan pacman = frame.addPacMan(new Location(2, 4)); //Creates PacMan at location x, y
+		PacMan pacman = frame.addPacMan(new Location(2, 3)); //Creates PacMan at location x, y
 		Map m = frame.getMap();
 
-		ArrayList<Location> l = new ArrayList<>();
+		HashSet<Map.Type> l = new HashSet<Map.Type>();
+		l.add(Map.Type.PACMAN);
+		l.add(Map.Type.COOKIE);
 	
 
-		AssertEquals(m.getLoc(new Location (2,4)), m.Type.PACMAN);
+		assertEquals(m.getLoc(new Location(2, 3)), l);
 	}
 }

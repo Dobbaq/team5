@@ -1,13 +1,14 @@
 import java.awt.Color;
 import junit.framework.*;
+import java.io.*;
 
-public class TestMapAttack {
+public class TestMapAttack extends TestCase {
 
-	public void testMapAttack() {
-		Mainframe frame = new MainFrame();
-		Ghost ghost = frame.addGhost(new Location(9, 11), "Joe", Color.red); //Creates a red ghost named "name" at location x,y
-		PacMan pacman = frame.addPacMan(new Location(9, 12)); //Creates PacMan at location x, y
+	public void testMapAttack() throws FileNotFoundException {
+		MainFrame frame = new MainFrame();
+		Ghost ghost = frame.addGhost(new Location(9, 8), "Joe", Color.red); //Creates a red ghost named "name" at location x,y
+		PacMan pacman = frame.addPacMan(new Location(9, 9)); //Creates PacMan at location x, y
 
-		AssertTrue(ghost.attack());
+		assertTrue(ghost.attack());
 	}
 }
