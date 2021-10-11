@@ -2,18 +2,21 @@
 
 By: Myckell Ronquillo, Ryan Gorinson, Evan Nadelbach, Joseph Zietowski
 
-*Insert image of your code playing PacMan*
+![pacman_screenshot](pacman_screenshot.png)
 
 ## Table of Contents
-*Need to figure out*
 [How to play](#how-to-play)  
-[method](#Methods)  
+[Methods](#Methods)  
 
 
 ## How to play
-*Insert section on how to run the code from command line*
+*First, compile the program using the line below*
+```bash
+javac -cp "src/" src/*.java
 ```
-\\Insert code block
+*Then, start the game by running this line:*
+```bash
+java -cp "src/" StartMenu
 ```
 
 ## Methods
@@ -49,10 +52,10 @@ By: Myckell Ronquillo, Ryan Gorinson, Evan Nadelbach, Joseph Zietowski
 - **Test**: This test creates a ghost and moves it to a new location by calling move(). It then makes sure that the ghost was moved properly and that it has been removed from its initial position.
 ### Map - getLoc(Location Loc)
 - **Description**: For the given location argument, This method returns what is currently at the location (Empty, Pacman, Cookie, Ghost, Wall).
-- -**Test**: The test checks to see if a previously inserted element at (x,y) gets correctly returned from the location loc 
+- **Test**: The test checks to see if a previously inserted element at (x,y) gets correctly returned from the location loc 
 ### Map - attack(String name)
 - **Description**: The method controls ghosts attacking pacman. If the ghost was able to successfully attack pacman and update the display to do so return true, otherwise return false.
-- -**Test**: If a ghost is within 1 x/y coordinate from pacman, the test will return true verifying that pacman has been attacked
+- **Test**: If a ghost is within 1 x/y coordinate from pacman, the test will return true verifying that pacman has been attacked
 ### Map - eatCookie(String Name)
 - **Description**: The method controls Pacman eating a cookie. When the method is able to successfully update display to eat a cookie it returns the Cookie component that has been eaten, otherwise it returns null.
-- -**Test**: The test makes sure that if pacman is at x,y and cookie is not at x,y then it will return null. It also verifies that there will be a return value if the cookies coordinates = pacmans coordinates
+- **Test**: The test makes sure that if pacman is at x,y and cookie is not at x,y then it will return null. It also verifies that there will be a return value if the cookies coordinates = pacmans coordinates
