@@ -42,5 +42,11 @@ By: Myckell Ronquillo, Ryan Gorinson, Evan Nadelbach, Joseph Zietowski
 
 ### Map - move(String name, Location loc, Type type)
 ### Map - getLoc(Location Loc)
+- **Description**: For the given location argument, This functionreturns what is currently at the location (Empty, Pacman, Cookie, Ghost, Wall).
+- -**Test**: The test checks to see if a previously inserted element at (x,y) gets correctly returned from the location loc 
 ### Map - attack(String name)
+- **Description**: The method controls ghosts attacking pacman. If the ghost was able to successfully attack pacman and update the display to do so return true, otherwise return false.
+- -**Test**: If a ghost is within 1 x/y coordinate from pacman, the test will return true verifying that pacman has been attacked
 ### Map - eatCookie(String Name)
+- **Description**: The method controls Pacman eating a cookie. When the function is able to successfully update display to eat a cookie it returns the Cookie component that has been eaten, otherwise it returns null.
+- -**Test**: The test makes sure that if pacman is at x,y and cookie is not at x,y then it will return null. It also verifies that there will be a return value if the cookies coordinates = pacmans coordinates
