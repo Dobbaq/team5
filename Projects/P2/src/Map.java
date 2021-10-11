@@ -60,7 +60,7 @@ public class Map{
 		Location oldLoc = locations.get(name);
 
 		// check if the move is valid
-		if (field.get(oldLoc).contains(Type.WALL))
+		if (field.get(oldLoc).contains(Type.WALL) || field.get(loc) == null)
 			return false;
 
 		// update locations
@@ -78,7 +78,10 @@ public class Map{
 	//For the given location argument, returns what is currently at the location (Empty, Pacman, Cookie, Ghost, Wall).
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
-		return field.get(loc);
+		HashSet<Type> ret = field.get(loc);
+		if (ret == null) 
+			return emptySet;
+		return ret;
 	}
 
 	/*The method controls ghosts attacking pacman. If the ghost was able 
