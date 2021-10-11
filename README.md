@@ -7,7 +7,7 @@ By: Myckell Ronquillo, Ryan Gorinson, Evan Nadelbach, Joseph Zietowski
 ## Table of Contents
 *Need to figure out*
 [How to play](#how-to-play)  
-[Functions](#Functions)  
+[method](#Methods)  
 
 
 ## How to play
@@ -16,17 +16,17 @@ By: Myckell Ronquillo, Ryan Gorinson, Evan Nadelbach, Joseph Zietowski
 \\Insert code block
 ```
 
-## Functions
+## Methods
 
 ### Pacman - get_valid_moves()
-- **Description**: This functions returns all the possible valid moves that PacMan can take given his current location
+- **Description**: This method returns all the possible valid moves that PacMan can take given his current location
 - **Test**: The test places PacMan in a location where the only 3 possible moves
 ### Pacman - move()
-- **Description**: This function randomly chooses a valid move from get_valid_moves() function and moves PacMan to that valid move
+- **Description**: This method randomly chooses a valid move from get_valid_moves() method and moves PacMan to that valid move
 - **Test**: The test checks to see if PacMan moved to a new location by checking the map that there is a type PacMan in the new location that he moved to
 ### Pacman - is_ghost_in_range()
-- **Description**: This function checks to see if there are any ghosts adjacent to PacMan's current location
-- **Test**: The test first checks to see if a ghost is next to PacMan and returns false and a ghost is then added next to PacMan and is_ghost_in_range() function is called again and returns True since there is a ghost next to PacMan
+- **Description**: This method checks to see if there are any ghosts adjacent to PacMan's current location
+- **Test**: The test first checks to see if a ghost is next to PacMan and returns false and a ghost is then added next to PacMan and is_ghost_in_range() method is called again and returns True since there is a ghost next to PacMan
 ### Pacman - consume()
 - **Description**: This method calls the Map class to consume the cookie that Pacman is on. If a cookie is not at the same location as Pacman, this method will return null. Otherwise, it will return the cookie JComponent consumed.
 - **Test**: This test adds Pacman to a location with a cookie and makes sure the cookie is consumed and returned. Then, this test moves Pacman to a location without a cookie and makes sure that consume() returns null.
@@ -48,11 +48,11 @@ By: Myckell Ronquillo, Ryan Gorinson, Evan Nadelbach, Joseph Zietowski
 - **Description**: This method takes in a name, location, and Type, and moves the corresponding component to the provided location while removing it from its previous location. To do this, it needs to update three fields in the Map class (locations, components, field). For this method to work, there needs to be an existing component with the name and type provided.
 - **Test**: This test creates a ghost and moves it to a new location by calling move(). It then makes sure that the ghost was moved properly and that it has been removed from its initial position.
 ### Map - getLoc(Location Loc)
-- **Description**: For the given location argument, This functionreturns what is currently at the location (Empty, Pacman, Cookie, Ghost, Wall).
+- **Description**: For the given location argument, This method returns what is currently at the location (Empty, Pacman, Cookie, Ghost, Wall).
 - -**Test**: The test checks to see if a previously inserted element at (x,y) gets correctly returned from the location loc 
 ### Map - attack(String name)
 - **Description**: The method controls ghosts attacking pacman. If the ghost was able to successfully attack pacman and update the display to do so return true, otherwise return false.
 - -**Test**: If a ghost is within 1 x/y coordinate from pacman, the test will return true verifying that pacman has been attacked
 ### Map - eatCookie(String Name)
-- **Description**: The method controls Pacman eating a cookie. When the function is able to successfully update display to eat a cookie it returns the Cookie component that has been eaten, otherwise it returns null.
+- **Description**: The method controls Pacman eating a cookie. When the method is able to successfully update display to eat a cookie it returns the Cookie component that has been eaten, otherwise it returns null.
 - -**Test**: The test makes sure that if pacman is at x,y and cookie is not at x,y then it will return null. It also verifies that there will be a return value if the cookies coordinates = pacmans coordinates
