@@ -1,0 +1,12 @@
+name: deployment workflow
+on:
+push:
+branches: [main]
+jobs:
+compile_project:
+runs-on: ubuntu-latest
+container: openjdk
+steps:
+- name: Compile Project
+run: |
+javac -cp "src/" src/*.java
