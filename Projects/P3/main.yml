@@ -1,14 +1,12 @@
 name: deployment workflow
-on: 
-  push: 
-    branches: [main]
-jobs: 
-  job_one: Compile
-    runs-on: openjdk
-    steps:
-      - name: compile
-        url:  "https://github.com/cmsc389T-fall21/team5"
-        with: 
-          script: | 
-            javac -cp "src/" src/*.java
-  
+on:
+push:
+branches: [main]
+jobs:
+compile_project:
+runs-on: ubuntu-latest
+container: openjdk
+steps:
+- name: Compile Project
+run: |
+javac -cp "src/" src/*.java
