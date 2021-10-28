@@ -1,12 +1,15 @@
 name: deployment workflow
-on:
-push:
+on: [push, pull_request, workflow_dispatch]
 branches: [main]
+
 jobs:
-compile_project:
-runs-on: ubuntu-latest
-container: openjdk
-steps:
-- name: Compile Project
-run: |
-javac -cp "src/" src/*.java
+  build:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Compile Project
+        run: |
+          javac -cp "../P2/src/" ../P2/src/*.java
+          javac -cp "../P2/tests/junit-4.10.jar:src/:tests/" ../P2/src/*.java ../P2/tests/*.java
+
