@@ -1,6 +1,5 @@
 name: deployment workflow
 on: [push, pull_request, workflow_dispatch]
-branches: [main, FTR-actions]
 
 jobs:
   build:
