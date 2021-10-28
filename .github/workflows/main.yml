@@ -10,6 +10,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Compile Project
         run: |
-          javac -cp "../P2/src/" ../P2/src/*.java
-          javac -cp "../P2/tests/junit-4.10.jar:src/:tests/" ../P2/src/*.java ../P2/tests/*.java
+          javac -cp "Projects/P2/src/" ../P2/src/*.java
+          javac -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
 
