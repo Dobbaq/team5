@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test ghost_get_valid_moves
         run: |
-          javac -cp "Projects/P2/src/" Projects/P2/src/*.java
+          ls
           javac -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
           java -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostValidMoves
   test_ghost_move:
@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test ghost_move
         run: |
-          javac -cp "Projects/P2/src/" Projects/P2/src/*.java
+          ls
           javac -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
           java -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostMove
   test_ghost_is_pacman_in_range:
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test ghost_is_pacman_in_range
         run: |
-          javac -cp "Projects/P2/src/" Projects/P2/src/*.java
+          ls
           javac -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
           java -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManInRange
 
