@@ -30,6 +30,7 @@ jobs:
         run: |
           javac -cp "Projects/P2/src/" Projects/P2/src/*.java
           javac -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
+          ls
           java -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:tests/" org.junit.runner.JUnitCore Projects/P2/tests/TestAttack
   test_map_move:
     runs-on: ubuntu-latest
