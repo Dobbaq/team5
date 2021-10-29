@@ -10,7 +10,7 @@ jobs:
       - name: Compile Project
         run: |
           javac -cp "Projects/P2/src/" Projects/P2/src/*.java
-          javac -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
+          javac -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
   test_pacman_consume:
     runs-on: ubuntu-latest
     container: openjdk
@@ -20,7 +20,7 @@ jobs:
         run: |
           javac -cp "Projects/P2/src/" Projects/P2/src/*.java
           javac -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
-          java -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:tests/" org.junit.runner.JUnitCore Projects/P2/tests/TestConsume
+          java -Djava.awt.headless=true -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:Projects/P2/tests/" org.junit.runner.JUnitCore TestConsume
   test_ghost_attack:
     runs-on: ubuntu-latest
     container: openjdk
@@ -30,8 +30,7 @@ jobs:
         run: |
           javac -cp "Projects/P2/src/" Projects/P2/src/*.java
           javac -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
-          ls
-          java -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:tests/" org.junit.runner.JUnitCore Projects/P2/tests/TestAttack
+          java -Djava.awt.headless=true -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:Projects/P2/tests/" org.junit.runner.JUnitCore TestAttack
   test_map_move:
     runs-on: ubuntu-latest
     container: openjdk
@@ -41,4 +40,4 @@ jobs:
         run: |
           javac -cp "Projects/P2/src/" Projects/P2/src/*.java
           javac -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
-          java -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:tests/" org.junit.runner.JUnitCore Projects/P2/tests/TestMapMove
+          java -Djava.awt.headless=true -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:Projects/P2/tests/" org.junit.runner.JUnitCore TestMapMove
