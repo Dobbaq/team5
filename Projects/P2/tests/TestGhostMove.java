@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class TestGhostMove extends TestCase {
 
 	public void testGhostMove() throws FileNotFoundException{
-		MainFrame frame = new MainFrame();
+		NoFrame frame = new NoFrame();
 
 		Ghost ghost = frame.addGhost(new Location(1, 1), "test_ghost", Color.red);
 		Map map = frame.getMap();
