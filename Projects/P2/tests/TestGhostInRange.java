@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class TestGhostInRange extends TestCase {
 
 	public void testGhostInRange() throws FileNotFoundException{
-		MainFrame frame = new MainFrame();
+		NoFrame frame = new NoFrame();
 		PacMan pacman = frame.addPacMan(new Location(2 , 1));
 		assertFalse(pacman.is_ghost_in_range());
 		
