@@ -5,7 +5,7 @@ import java.io.*;
 public class TestPacManInRange extends TestCase {
 
 	public void testPacManInRange() throws FileNotFoundException{
-		MainFrame frame = new MainFrame();
+		NoFrame frame = new NoFrame();
 
 		Ghost ghost = frame.addGhost(new Location(1, 1), "test_ghost", Color.red);
 		assertFalse(ghost.is_pacman_in_range());
