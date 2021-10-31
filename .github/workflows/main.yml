@@ -34,7 +34,7 @@ jobs:
           javac -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
           java -Djava.awt.headless=true -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:Projects/P2/tests/" org.junit.runner.JUnitCore TestPacManValidMoves
           
-test_ghost_move:
+  test_ghost_move:
     runs-on: ubuntu-latest
     container: openjdk
     steps:
@@ -111,7 +111,7 @@ test_ghost_move:
           javac -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
           java -Djava.awt.headless=true -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:Projects/P2/tests/" org.junit.runner.JUnitCore TestMapMove
 
-test_map_attack:
+  test_map_attack:
     runs-on: ubuntu-latest
     container: openjdk
     steps:
@@ -121,6 +121,7 @@ test_map_attack:
           javac -cp "Projects/P2/src/" Projects/P2/src/*.java
           javac -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
           java -Djava.awt.headless=true -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:Projects/P2/tests/" org.junit.runner.JUnitCore TestMapAttack
+  
   test_map_eat_cookie:
     runs-on: ubuntu-latest
     container: openjdk
@@ -131,6 +132,7 @@ test_map_attack:
           javac -cp "Projects/P2/src/" Projects/P2/src/*.java
           javac -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
           java -Djava.awt.headless=true -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:Projects/P2/tests/" org.junit.runner.JUnitCore TestMapEatCookie
+          
   test_map_get_loc:
     runs-on: ubuntu-latest
     container: openjdk
