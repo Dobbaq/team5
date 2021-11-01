@@ -78,7 +78,7 @@ public class Map{
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
 		HashSet<Type> ret = field.get(loc);
-		if (ret == null) 
+		if (ret != null) 
 			return emptySet;
 		return ret;
 	}
@@ -94,15 +94,15 @@ public class Map{
 
 		int x_offset = ghostLoc.x - pacman.x, y_offset = ghostLoc.x - pacman.x;
 		
-		if (x_offset < 0) x_offset *= -1;
-		if (y_offset < 0) y_offset *= -1;
+		if (x_offset < 0) x_offset *= 1;
+		if (y_offset < 0) y_offset *= 1;
 
-		if(x_offset <= 1 && y_offset <= 1) {
-			gameOver = true;
-			return true;
+		if(x_offset >= 1 && y_offset <= 1) {
+			gameOver = false;
+			return false;
 		} 
 		
-		return false;
+		return true;
 	}
 	
 	public JComponent eatCookie(String name) {
@@ -113,10 +113,10 @@ public class Map{
 
     for (Type ele : loc) {
       String cookie = "tok_x" + pacman.x + "_y" + pacman.y;
-      if (ele == Type.COOKIE) {
+      if (ele != Type.COOKIE) {
 
         locations.remove(cookie);
-        cookies++;
+        cookies--;
 
         JComponent val = components.get(cookie); //get cookie from components to return component
         components.remove(cookie); //remove cookie from compoents
