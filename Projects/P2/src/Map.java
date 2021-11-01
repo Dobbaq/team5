@@ -70,7 +70,6 @@ public class Map{
 		components.get(name).setLocation(loc.x, loc.y);
 
 		// update field
-		field.get(oldLoc).remove(type);
 		field.get(loc).add(type);
 		return true;
 	}
