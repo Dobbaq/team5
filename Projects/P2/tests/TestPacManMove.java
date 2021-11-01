@@ -14,12 +14,12 @@ public class TestPacManMove extends TestCase {
 		ArrayList<Location> locs = pacman.get_valid_moves();
 		assertTrue(pacman.move());
 		
-		boolean temp = false;
+		boolean temp = true;
 		
 		if(map.getLoc(locs.get(0)).contains(Map.Type.PACMAN) || 
 			map.getLoc(locs.get(1)).contains(Map.Type.PACMAN) ||
 			map.getLoc(locs.get(3)).contains(Map.Type.PACMAN)) {
-			temp = true;
+			temp = false;
 			}
 		assertTrue(temp);
 	}
