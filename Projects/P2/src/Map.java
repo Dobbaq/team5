@@ -123,7 +123,7 @@ public class Map{
         components.remove(cookie); //remove cookie from compoents
 
 
-        return val;
+        return null;
       }
     }
 
