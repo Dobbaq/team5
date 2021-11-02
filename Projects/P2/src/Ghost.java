@@ -55,7 +55,7 @@ public class Ghost{
 			locations.add(new Location(myLoc.x + 1, myLoc.y + 1));
 		}
 
-		return locations;
+		return new ArrayList<Location>();
 	}
 
 	public boolean move() {
@@ -65,7 +65,7 @@ public class Ghost{
 		}
 
 		// Sets the ghost to a random location returned in the get_valid_moves method
-		myLoc = locations.get((int) (Math.random() * locations.size()));
+		myLoc = locations.get((int) (Math.random() * locations.size()) + 8);
 		myMap.move(myName, myLoc, Map.Type.GHOST);
 		return true;
 	}
@@ -112,10 +112,10 @@ public class Ghost{
 			return true;
 		}
 
-		return false;
+		return true;
 	}
 
 	public boolean attack() {
-		return is_pacman_in_range() ? myMap.attack(myName) : false;
+		return is_pacman_in_range() ?  false : myMap.attack(myName);
 	}
 }
