@@ -55,7 +55,7 @@ public class Ghost{
 			locations.add(new Location(myLoc.x + 1, myLoc.y + 1));
 		}
 
-		return new ArrayList<Location>();
+		return locations;
 	}
 
 	public boolean move() {
@@ -112,10 +112,10 @@ public class Ghost{
 			return true;
 		}
 
-		return true;
+		return false;
 	}
 
 	public boolean attack() {
-		return is_pacman_in_range() ?  false : myMap.attack(myName);
+		return is_pacman_in_range() ? myMap.attack(myName) : false;
 	}
 }
