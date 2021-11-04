@@ -65,7 +65,7 @@ public class Ghost{
 		}
 
 		// Sets the ghost to a random location returned in the get_valid_moves method
-		myLoc = locations.get((int) (Math.random() * locations.size()) + 8);
+		myLoc = locations.get((int) (Math.random() * locations.size()));
 		myMap.move(myName, myLoc, Map.Type.GHOST);
 		return true;
 	}
