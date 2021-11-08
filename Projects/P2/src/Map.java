@@ -91,14 +91,14 @@ public class Map{
 		Location pacman = locations.get("pacman");
 
 		int x_offset = ghostLoc.x - pacman.x, y_offset = ghostLoc.x - pacman.x;
-		
-		if (x_offset < 0) x_offset *= 1;
-		if (y_offset < 0) y_offset *= 1;
 
-		if(x_offset >= 1 && y_offset <= 1) {
-			gameOver = false;
-			return false;
-		} 
+		if (x_offset < 0) x_offset *= -1;
+		if (y_offset < 0) y_offset *= -1;
+
+		if(x_offset <= 1 && y_offset <= 1) {
+			gameOver = true;
+			return true;
+		}
 		
 		return false;
 	}
