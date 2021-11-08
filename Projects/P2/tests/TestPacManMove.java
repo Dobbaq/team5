@@ -18,7 +18,7 @@ public class TestPacManMove extends TestCase {
 		
 		if(map.getLoc(locs.get(0)).contains(Map.Type.PACMAN) || 
 			map.getLoc(locs.get(1)).contains(Map.Type.PACMAN) ||
-			map.getLoc(locs.get(3)).contains(Map.Type.PACMAN)) {
+			map.getLoc(locs.get(2)).contains(Map.Type.PACMAN)) {
 			temp = true;
 			}
 		assertTrue(temp);

@@ -60,7 +60,7 @@ public class Map{
 		Location oldLoc = locations.get(name);
 
 		// check if the move is valid
-		if (field.get(oldLoc).contains(Type.WALL) || field.get(loc) == null)
+		if (field.get(oldLoc).contains(Type.WALL))
 			return false;
 
 		// update locations
@@ -70,6 +70,7 @@ public class Map{
 		components.get(name).setLocation(loc.x, loc.y);
 
 		// update field
+		field.get(oldLoc).remove(type);
 		field.get(loc).add(type);
 		return true;
 	}
@@ -77,10 +78,7 @@ public class Map{
 	//For the given location argument, returns what is currently at the location (Empty, Pacman, Cookie, Ghost, Wall).
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
-		HashSet<Type> ret = field.get(loc);
-		if (ret != null) 
-			return emptySet;
-		return ret;
+		return field.get(loc);
 	}
 
 	/*The method controls ghosts attacking pacman. If the ghost was able 
@@ -93,14 +91,14 @@ public class Map{
 		Location pacman = locations.get("pacman");
 
 		int x_offset = ghostLoc.x - pacman.x, y_offset = ghostLoc.x - pacman.x;
-		
-		if (x_offset < 0) x_offset *= 1;
-		if (y_offset < 0) y_offset *= 1;
 
-		if(x_offset >= 1 && y_offset <= 1) {
-			gameOver = false;
-			return false;
-		} 
+		if (x_offset < 0) x_offset *= -1;
+		if (y_offset < 0) y_offset *= -1;
+
+		if(x_offset <= 1 && y_offset <= 1) {
+			gameOver = true;
+			return true;
+		}
 		
 		return false;
 	}
@@ -108,21 +106,21 @@ public class Map{
 	public JComponent eatCookie(String name) {
 		//update locations, components, field, and cookies
     //the id for a cookie at (10, 1) is tok_x10_y1
-    Location pacman = locations.get("ghost");
+    Location pacman = locations.get(name);
     HashSet<Type> loc = field.get(pacman);
 
     for (Type ele : loc) {
       String cookie = "tok_x" + pacman.x + "_y" + pacman.y;
-      if (ele != Type.COOKIE) {
+      if (ele == Type.COOKIE) {
 
         locations.remove(cookie);
-        cookies--;
+        cookies++;
 
         JComponent val = components.get(cookie); //get cookie from components to return component
         components.remove(cookie); //remove cookie from compoents
 
 
-        return null;
+        return val;
       }
     }
 
