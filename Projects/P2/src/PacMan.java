@@ -16,35 +16,43 @@ public class PacMan {
 	}
 
 	public ArrayList<Location> get_valid_moves() {
-		ArrayList<Location> validMoves = new ArrayList<Location>();
-
-		/* Can't go through wall. But Empty, Cookie, Ghost works */
-		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y + 1)).contains(Map.Type.WALL)) {
-			validMoves.add(new Location(myLoc.x - 1, myLoc.y + 1)); // Top Left Diagonal
+		ArrayList<Location> result = new ArrayList<Location>();
+		if(myMap.getLoc(myLoc.shift(0,1))!= null && !(myMap.getLoc(myLoc.shift(0,1)).contains(Map.Type.WALL))) {
+			if(myMap.getLoc(myLoc.shift(0,-1))!= null && (myMap.getLoc(myLoc.shift(0,-1)).contains(Map.Type.WALL))) {
+				this.upDownDir = false;
+			}
+		}else{
+			this.upDownDir=true;
 		}
-		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.WALL)) {
-			validMoves.add(new Location(myLoc.x - 1, myLoc.y)); // Left
+		if(myMap.getLoc(myLoc.shift(1,0))!= null && !(myMap.getLoc(myLoc.shift(1,0)).contains(Map.Type.WALL))) {
+			if(myMap.getLoc(myLoc.shift(-1,0))!= null && (myMap.getLoc(myLoc.shift(-1,0)).contains(Map.Type.WALL))) {
+				this.leftRightDir = false;
+			}
+		}else{
+			this.leftRightDir=true;
 		}
-		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y - 1)).contains(Map.Type.WALL)) {
-			validMoves.add(new Location(myLoc.x - 1, myLoc.y - 1)); // Bottom Left Diagonal
+		if (myMap.getLoc(myLoc.shift(0,1))!= null && !(myMap.getLoc(myLoc.shift(0,1)).contains(Map.Type.WALL))) {
+			result.add(myLoc.shift(0, 1));
+		} 
+		if (myMap.getLoc(myLoc.shift(1,0))!= null && !myMap.getLoc(myLoc.shift(1,0)).contains(Map.Type.WALL)) {
+		
+			result.add(myLoc.shift(1, 0));
+		} 
+		if (myMap.getLoc(myLoc.shift(-1,0))!= null && !myMap.getLoc(myLoc.shift(-1,0)).contains(Map.Type.WALL)) {
+				if(this.leftRightDir) {
+					result.add(0,myLoc.shift(-1, 0));
+				}else {
+					result.add(myLoc.shift(-1, 0));
+				}	
 		}
-		if (myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.WALL)) {
-			validMoves.add(new Location(myLoc.x, myLoc.y - 1)); // Bottom
+		if (myMap.getLoc(myLoc.shift(0,-1))!= null &&!myMap.getLoc(myLoc.shift(0,-1)).contains(Map.Type.WALL)) {
+			if(this.upDownDir) {
+				result.add(0, myLoc.shift(0, -1));
+			}else {
+				result.add(myLoc.shift(0, -1));
+			}
 		}
-		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y - 1)).contains(Map.Type.WALL)) {
-			validMoves.add(new Location(myLoc.x + 1, myLoc.y - 1)); // Bottom Right Diagonal
-		}
-		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.WALL)) {
-			validMoves.add(new Location(myLoc.x + 1, myLoc.y)); // Right
-		}
-		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y + 1)).contains(Map.Type.WALL)) {
-			validMoves.add(new Location(myLoc.x + 1, myLoc.y + 1)); // Top Right Diagonal
-		}
-		if (myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.WALL)) {
-			validMoves.add(new Location(myLoc.x, myLoc.y + 1)); // Top
-		}
-
-		return validMoves; // Returns a list of valid locations
+		return result;
 	}
 
 	public boolean move() {
