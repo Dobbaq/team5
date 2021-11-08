@@ -19,29 +19,29 @@ public class PacMan {
 		ArrayList<Location> validMoves = new ArrayList<Location>();
 
 		/* Can't go through wall. But Empty, Cookie, Ghost works */
-		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y + 2)).contains(Map.Type.WALL)) {
+		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y + 1)).contains(Map.Type.WALL)) {
 			validMoves.add(new Location(myLoc.x - 1, myLoc.y + 1)); // Top Left Diagonal
 		}
-		if (myMap.getLoc(new Location(myLoc.x - 2, myLoc.y)).contains(Map.Type.WALL)) {
+		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.WALL)) {
 			validMoves.add(new Location(myLoc.x - 1, myLoc.y)); // Left
 		}
 		if (myMap.getLoc(new Location(myLoc.x - 1, myLoc.y - 1)).contains(Map.Type.WALL)) {
-			validMoves.add(new Location(myLoc.x - 2, myLoc.y - 1)); // Bottom Left Diagonal
+			validMoves.add(new Location(myLoc.x - 1, myLoc.y - 1)); // Bottom Left Diagonal
 		}
 		if (myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.WALL)) {
 			validMoves.add(new Location(myLoc.x, myLoc.y - 1)); // Bottom
 		}
-		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y - 2)).contains(Map.Type.WALL)) {
+		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y - 1)).contains(Map.Type.WALL)) {
 			validMoves.add(new Location(myLoc.x + 1, myLoc.y - 1)); // Bottom Right Diagonal
 		}
-		if (myMap.getLoc(new Location(myLoc.x + 2, myLoc.y)).contains(Map.Type.WALL)) {
+		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.WALL)) {
 			validMoves.add(new Location(myLoc.x + 1, myLoc.y)); // Right
 		}
 		if (myMap.getLoc(new Location(myLoc.x + 1, myLoc.y + 1)).contains(Map.Type.WALL)) {
 			validMoves.add(new Location(myLoc.x + 1, myLoc.y + 1)); // Top Right Diagonal
 		}
 		if (myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.WALL)) {
-			validMoves.add(new Location(myLoc.x, myLoc.y + 2)); // Top
+			validMoves.add(new Location(myLoc.x, myLoc.y + 1)); // Top
 		}
 
 		return validMoves; // Returns a list of valid locations
